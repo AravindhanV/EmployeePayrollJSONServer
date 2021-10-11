@@ -102,6 +102,10 @@ label {
   resize: vertical;
 }
 
+#salary {
+  padding: 0px;
+}
+
 .profile-radio-content {
   display: flex;
   flex-direction: row;
@@ -143,7 +147,7 @@ select {
   letter-spacing: 0px;
   color: #42515f;
   opacity: 1;
-  background: #E2E2E2;
+  background: #e2e2e2;
   border-radius: 5px;
   border: 1px solid #969696;
   font-weight: 400;
