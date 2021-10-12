@@ -45,9 +45,27 @@ window.addEventListener("DOMContentLoaded", (event) => {
 const save = (event) => {
   try {
     let employeePayrollData = createEmployeePayroll();
+    createAndUpdateStorage(employeePayrollData);
   } catch (e) {
     return;
   }
+};
+
+const createAndUpdateStorage = (employeePayrollData) => {
+  let employeePayrollList = JSON.parse(
+    localStorage.getItem("EmployeePayrollList")
+  );
+
+  if (employeePayrollList != undefined) {
+    employeePayroll.push(employeePayrollData);
+  } else {
+    employeePayrollList = [employeePayrollData];
+  }
+  alert(employeePayrollList.toString());
+  localStorage.setItem(
+    "EmployeePayrollList",
+    JSON.stringify(employeePayrollList)
+  );
 };
 
 const createEmployeePayroll = () => {
@@ -93,24 +111,3 @@ const getInputElementValue = (id) => {
   let value = document.getElementById(id).value;
   return value;
 };
-
-// function save(e) {
-//   let name = document.getElementById("name").value;
-//   let date = document.getElementById("day").value;
-//   let month = document.getElementById("month").value;
-//   let year = document.getElementById("year").value;
-//   let startDate = Date.parse(year + "-" + month + "-" + date);
-
-//   let nameRegex = RegExp("^[A-Z][a-z]{2,}$");
-//   if (!nameRegex.test(name)) {
-//     alert("Invalid name");
-//     return false;
-//   }
-
-//   let difference = Math.abs(Date.now() - startDate);
-//   difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
-//   if (difference > 30) {
-//     alert("Invalid Date");
-//     return false;
-//   }
-// }
