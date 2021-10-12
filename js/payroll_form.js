@@ -42,23 +42,76 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-function save(e) {
-  let name = document.getElementById("name").value;
-  let date = document.getElementById("day").value;
-  let month = document.getElementById("month").value;
-  let year = document.getElementById("year").value;
-  let startDate = Date.parse(year + "-" + month + "-" + date);
+const save = (event) => {
+  try {
+    let employeePayrollData = createEmployeePayroll();
+  } catch (e) {
+    return;
+  }
+};
 
-  let nameRegex = RegExp("^[A-Z][a-z]{2,}$");
-  if (!nameRegex.test(name)) {
-    alert("Invalid name");
-    return false;
+const createEmployeePayroll = () => {
+  let employeePayrollData = new EmployeePayrollData();
+  try {
+    employeePayrollData.name = getInputValueById("#name");
+  } catch (e) {
+    setTextValue(".text-error", e);
+    throw e;
   }
 
-  let difference = Math.abs(Date.now() - startDate);
-  difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
-  if (difference > 30) {
-    alert("Invalid Date");
-    return false;
-  }
-}
+  employeePayrollData.profilePic = getSelectedValues("[name=profile]").pop();
+  employeePayrollData.gender = getSelectedValues("[name=gender]").pop();
+  employeePayrollData.department = getSelectedValues("[name=department]");
+  employeePayrollData.salary = getInputValueById("#salary");
+  employeePayrollData.note = getInputValueById("#notes");
+
+  let date =
+    getInputValueById("#day") +
+    " " +
+    getInputValueById("#month") +
+    " " +
+    getInputValueById("#year");
+  employeePayrollData.date = Date.parse(date);
+  alert(employeePayrollData.toString());
+  return employeePayrollData;
+};
+
+const getSelectedValues = (propertyValue) => {
+  let allItems = document.querySelectorAll(propertyValue);
+  let selItems = [];
+  allItems.forEach((item) => {
+    if (item.checked) selItems.push(item.value);
+  });
+  return selItems;
+};
+
+const getInputValueById = (id) => {
+  let value = document.querySelector(id).value;
+  return value;
+};
+
+const getInputElementValue = (id) => {
+  let value = document.getElementById(id).value;
+  return value;
+};
+
+// function save(e) {
+//   let name = document.getElementById("name").value;
+//   let date = document.getElementById("day").value;
+//   let month = document.getElementById("month").value;
+//   let year = document.getElementById("year").value;
+//   let startDate = Date.parse(year + "-" + month + "-" + date);
+
+//   let nameRegex = RegExp("^[A-Z][a-z]{2,}$");
+//   if (!nameRegex.test(name)) {
+//     alert("Invalid name");
+//     return false;
+//   }
+
+//   let difference = Math.abs(Date.now() - startDate);
+//   difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
+//   if (difference > 30) {
+//     alert("Invalid Date");
+//     return false;
+//   }
+// }
