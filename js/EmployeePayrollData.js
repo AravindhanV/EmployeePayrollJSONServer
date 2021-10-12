@@ -11,6 +11,7 @@ class EmployeePayrollData {
   }
   set name(name) {
     let nameRegex = RegExp("^[A-Z][a-zA-Z\\s]{2,}$");
+    console.log(name);
     if (nameRegex.test(name)) {
       this._name = name;
     } else throw "Invalid name";
