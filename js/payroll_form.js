@@ -17,8 +17,9 @@ function save(e) {
     return false;
   }
 
-  let maxDateGap = 30 * 24 * 60 * 60 * 1000;
-  if (startDate - Date.now() > maxDateGap) {
+  let difference = Math.abs(Date.now() - startDate);
+  difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
+  if (difference > 30) {
     alert("Invalid Date");
     return false;
   }
