@@ -13,12 +13,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
       textError.textContent = e;
     }
   });
-});
 
-var salaryOutput = document.querySelector(".salary-output");
-var salary = document.querySelector("#salary");
-salary.addEventListener("input", function () {
-  salaryOutput.textContent = salary.value;
+  const salary = document.querySelector("#salary");
+  const output = document.querySelector(".salary-output");
+  output.textContent = salary.value;
+  salary.addEventListener("input", function () {
+    output.textContent = salary.value;
+  });
 });
 
 function save(e) {
