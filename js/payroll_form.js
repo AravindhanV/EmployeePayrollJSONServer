@@ -20,6 +20,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
   salary.addEventListener("input", function () {
     output.textContent = salary.value;
   });
+
+  var date = document.getElementById("day");
+  var month = document.getElementById("month");
+  var year = document.getElementById("year");
+  const dateError = document.querySelector(".date-error");
+  date.addEventListener("change", validateDate);
+  month.addEventListener("change", validateDate);
+  year.addEventListener("change", validateDate);
+
+  function validateDate() {
+    let startDate = Date.parse(
+      year.value + "-" + month.value + "-" + date.value
+    );
+    try {
+      new EmployeePayrollData().startDate = startDate;
+      dateError.textContent = "";
+    } catch (e) {
+      dateError.textContent = e;
+    }
+  }
 });
 
 function save(e) {
