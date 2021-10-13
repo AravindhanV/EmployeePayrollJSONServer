@@ -56,7 +56,9 @@ class EmployeePayrollData {
   }
   set startDate(startDate) {
     let difference = Date.now() - startDate;
-    difference = Math.ceil(difference / (1000 * 60 * 60 * 24));
+    difference = difference / (1000 * 60 * 60 * 24);
+    difference =
+      difference < 0 ? Math.floor(difference) : Math.ceil(difference);
     if (difference > 30 || difference < 0) {
       throw "Invalid Date";
     } else {
