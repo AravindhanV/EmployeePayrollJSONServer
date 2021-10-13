@@ -78,6 +78,7 @@ const resetForm = () => {
   setValue("#day", "1");
   setValue("#month", "1");
   setValue("#year", "2021");
+  setTextValue(".salary-output", "400000");
 };
 
 const unsetSelectedValues = (propertyValue) => {
@@ -85,6 +86,11 @@ const unsetSelectedValues = (propertyValue) => {
   allItems.forEach((item) => {
     item.checked = false;
   });
+};
+
+const setTextValue = (id, value) => {
+  const element = document.querySelector(id);
+  element.textContent = value;
 };
 
 const setValue = (id, value) => {
