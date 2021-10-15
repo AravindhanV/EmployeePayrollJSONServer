@@ -57,7 +57,7 @@ const createAndUpdateStorage = (employeePayrollData) => {
   );
 
   if (employeePayrollList != undefined) {
-    employeePayroll.push(employeePayrollData);
+    employeePayrollList.push(employeePayrollData);
   } else {
     employeePayrollList = [employeePayrollData];
   }
@@ -120,7 +120,7 @@ const createEmployeePayroll = () => {
     getInputValueById("#day");
   employeePayrollData.startDate = new Date(Date.parse(date));
   employeePayrollData.id = new Date().getTime();
-  alert(employeePayrollData.toString());
+  // alert(employeePayrollData.toString());
   return employeePayrollData;
 };
 
