@@ -16,10 +16,11 @@ const createInnerHtml = () => {
   const headerHtml =
     "<tr><th></th><th>Name</th><th>Gender</th><th>Department</th>" +
     "<th>Salary</th><th>Start Date</th><th>Actions</th></tr>";
-  if (employeePayrollList.length == 0) return;
-  let innerHtml = `${headerHtml}`;
-  for (const empPayrollData of employeePayrollList) {
-    innerHtml = `${innerHtml}
+  let innerHtml = "";
+  if (!employeePayrollList.length == 0) {
+    innerHtml = `${headerHtml}`;
+    for (const empPayrollData of employeePayrollList) {
+      innerHtml = `${innerHtml}
         <tr>
         <td><img class="profile" alt="" src="${
           empPayrollData._profilePic
@@ -30,11 +31,16 @@ const createInnerHtml = () => {
         <td>${empPayrollData._salary}</td>
         <td>${formatDate(empPayrollData._startDate)}</td>
         <td>
-        <img id="1" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-        <img id="1" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+        <img id="${
+          empPayrollData._id
+        }" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+        <img id="${
+          empPayrollData._id
+        }" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
         </td>
         </tr>
         `;
+    }
   }
   document.querySelector("#table-display").innerHTML = innerHtml;
 };
@@ -44,6 +50,25 @@ const formatDate = (date) => {
   return (
     date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear()
   );
+};
+
+const remove = (node) => {
+  let empPayrollData = employeePayrollList.find(
+    (empData) => empData._id == node.id
+  );
+  let temp = employeePayrollList;
+  if (!empPayrollData) return;
+  const index = employeePayrollList
+    .map((empData) => empData._id)
+    .indexOf(empPayrollData._id);
+  employeePayrollList.splice(index, 1);
+  localStorage.setItem(
+    "EmployeePayrollList",
+    JSON.stringify(employeePayrollList)
+  );
+  employeePayrollList = temp;
+  document.querySelector(".emp-count").textContent = employeePayrollList.length;
+  createInnerHtml();
 };
 
 const getDeptHtml = (departmentList) => {

@@ -119,6 +119,7 @@ const createEmployeePayroll = () => {
     "-" +
     getInputValueById("#day");
   employeePayrollData.startDate = new Date(Date.parse(date));
+  employeePayrollData.id = new Date().getTime();
   alert(employeePayrollData.toString());
   return employeePayrollData;
 };
