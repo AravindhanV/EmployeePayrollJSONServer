@@ -38,18 +38,6 @@
       "notes": "",
       "profilePic": "../assets/profile-images/Ellipse -2.png",
       "id": 3
-    },
-    {
-      "name": "Abc",
-      "profilePic": "../assets/profile-images/Ellipse -3.png",
-      "gender": "male",
-      "department": [
-        "Sales"
-      ],
-      "salary": "361000",
-      "note": "asdf",
-      "startDate": "2021-10-07T18:30:00.000Z",
-      "id": 4
     }
   ]
 }
