@@ -2,42 +2,54 @@
   "EmployeePayrollDB": [
     {
       "id": 1,
-      "_name": "Mark Taylor",
-      "_gender": "male",
-      "_department": [
+      "name": "Mark Taylor",
+      "gender": "male",
+      "department": [
         "HR",
         "Sales",
         "Finance",
         "Engineer"
       ],
-      "_salary": "500000",
-      "_startDate": "29 Oct 2019",
-      "_notes": "All in One",
-      "_profilePic": "../assets/profile-imgs/Ellipse -3.png"
+      "salary": "500000",
+      "startDate": "29 Oct 2019",
+      "notes": "All in One",
+      "profilePic": "../assets/profile-images/Ellipse -3.png"
     },
     {
       "id": 2,
-      "_name": "Bill Gates",
-      "_gender": "male",
-      "_department": [
+      "name": "Bill Gates",
+      "gender": "male",
+      "department": [
         "Engineer"
       ],
-      "_salary": "400000",
-      "_startDate": "29 Oct 2019",
-      "_notes": "Terrific Engineer",
-      "_profilePic": "../assets/profile-imgs/Ellipse -9.png"
+      "salary": "400000",
+      "startDate": "29 Oct 2019",
+      "notes": "Terrific Engineer",
+      "profilePic": "../assets/profile-images/Ellipse -9.png"
     },
     {
-      "_name": "Person 1",
-      "_gender": "Male",
-      "_department": [
+      "name": "Person 1",
+      "gender": "Male",
+      "department": [
         "Sales"
       ],
-      "_salary": "400500",
-      "_startDate": "10 Oct 2021",
-      "_notes": "",
-      "_profilePic": "../assets/profile-imgs/Ellipse -2.png",
+      "salary": "400500",
+      "startDate": "10 Oct 2021",
+      "notes": "",
+      "profilePic": "../assets/profile-images/Ellipse -2.png",
       "id": 3
+    },
+    {
+      "name": "Abc",
+      "profilePic": "../assets/profile-images/Ellipse -3.png",
+      "gender": "male",
+      "department": [
+        "Sales"
+      ],
+      "salary": "361000",
+      "note": "asdf",
+      "startDate": "2021-10-07T18:30:00.000Z",
+      "id": 4
     }
   ]
 }
