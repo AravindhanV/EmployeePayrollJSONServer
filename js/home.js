@@ -22,20 +22,18 @@ const createInnerHtml = () => {
     for (const empPayrollData of employeePayrollList) {
       innerHtml = `${innerHtml}
         <tr>
-        <td><img class="profile" alt="" src="${
-          empPayrollData._profilePic
-        }"></td>
-        <td>${empPayrollData._name}</td>
-        <td>${empPayrollData._gender}</td>
-        <td>${getDeptHtml(empPayrollData._department)}
-        <td>${empPayrollData._salary}</td>
-        <td>${formatDate(empPayrollData._startDate)}</td>
+        <td><img class="profile" alt="" src="${empPayrollData.profilePic}"></td>
+        <td>${empPayrollData.name}</td>
+        <td>${empPayrollData.gender}</td>
+        <td>${getDeptHtml(empPayrollData.department)}
+        <td>${empPayrollData.salary}</td>
+        <td>${formatDate(empPayrollData.startDate)}</td>
         <td>
         <img id="${
-          empPayrollData._id
+          empPayrollData.id
         }" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
         <img id="${
-          empPayrollData._id
+          empPayrollData.id
         }" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
         </td>
         </tr>
@@ -54,13 +52,13 @@ const formatDate = (date) => {
 
 const remove = (node) => {
   let empPayrollData = employeePayrollList.find(
-    (empData) => empData._id == node.id
+    (empData) => empData.id == node.id
   );
   let temp = employeePayrollList;
   if (!empPayrollData) return;
   const index = employeePayrollList
-    .map((empData) => empData._id)
-    .indexOf(empPayrollData._id);
+    .map((empData) => empData.id)
+    .indexOf(empPayrollData.id);
   employeePayrollList.splice(index, 1);
   localStorage.setItem(
     "EmployeePayrollList",
@@ -73,7 +71,7 @@ const remove = (node) => {
 
 const update = (node) => {
   let empPayrollData = employeePayrollList.find(
-    (empData) => empData._id == node.id
+    (empData) => empData.id == node.id
   );
   if (!empPayrollData) return;
   localStorage.setItem("editEmp", JSON.stringify(empPayrollData));
