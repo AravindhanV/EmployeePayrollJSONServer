@@ -4,7 +4,12 @@
       "id": 1,
       "_name": "Mark Taylor",
       "_gender": "male",
-      "_department": ["HR", "Sales", "Finance", "Engineer"],
+      "_department": [
+        "HR",
+        "Sales",
+        "Finance",
+        "Engineer"
+      ],
       "_salary": "500000",
       "_startDate": "29 Oct 2019",
       "_notes": "All in One",
@@ -14,11 +19,25 @@
       "id": 2,
       "_name": "Bill Gates",
       "_gender": "male",
-      "_department": ["Engineer"],
+      "_department": [
+        "Engineer"
+      ],
       "_salary": "400000",
       "_startDate": "29 Oct 2019",
       "_notes": "Terrific Engineer",
       "_profilePic": "../assets/profile-imgs/Ellipse -9.png"
+    },
+    {
+      "_name": "Person 1",
+      "_gender": "Male",
+      "_department": [
+        "Sales"
+      ],
+      "_salary": "400500",
+      "_startDate": "10 Oct 2021",
+      "_notes": "",
+      "_profilePic": "../assets/profile-imgs/Ellipse -2.png",
+      "id": 3
     }
   ]
 }
